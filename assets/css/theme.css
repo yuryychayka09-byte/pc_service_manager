@@ -1,0 +1,177 @@
+:root{
+    --bg-main: #001122;
+    --bg-navbar: #000814;
+
+    --card-bg: #003366;
+    --card-hover: #004080;
+
+    --accent: #60a5fa;
+    --text: #eaf2ff;
+}
+
+/* Загальний фон */
+html,
+body{
+    background: linear-gradient(
+        135deg,
+        #000814,
+        #001122,
+        #001f3f
+    ) !important;
+
+    min-height: 100vh;
+    color: var(--text);
+}
+
+/* Щоб контент не липнув до navbar */
+.container{
+    padding-top: 20px;
+}
+
+/* Navbar */
+.navbar{
+
+    background: rgba(0, 8, 20, 0.95) !important;
+
+    border-bottom: 2px solid #60a5fa;
+
+    box-shadow:
+        0 0 15px rgba(96,165,250,0.15);
+
+}
+
+
+.navbar-brand{
+    color: white !important;
+    font-weight: 700;
+}
+
+.nav-link{
+    color: #cbd5e1 !important;
+}
+
+.nav-link:hover{
+    color: var(--accent) !important;
+}
+
+/* Заголовки */
+h1,h2,h3,h4,h5,h6{
+    color: white !important;
+}
+
+/* Текст */
+p,
+label,
+strong,
+span{
+    color: var(--text);
+}
+
+/* Карточки Dashboard */
+.demon-card{
+    background: #0a3d7a !important;
+
+    border-left: 5px solid #60a5fa;
+
+    box-shadow:
+        0 0 20px rgba(96,165,250,0.15);
+
+    color: white;
+     cursor: pointer;
+}
+
+.demon-card:hover{
+    background: var(--card-hover) !important;
+
+     transform: translateY(-5px);
+
+    box-shadow: 0 0 20px rgba(96,165,250,0.30);
+}
+
+/* Кнопки меню */
+.demon-btn{
+
+    background: #0a3d7a;
+
+    color: white !important;
+
+    border: 1px solid #60a5fa;
+
+    font-weight: 600;
+}
+
+.demon-btn:hover{
+
+    background: #1456a0;
+
+    color: white;
+
+    transform: translateY(-2px);
+}
+
+/* Таблиці */
+.table{
+    color: white !important;
+}
+
+.table th{
+    background: #00264d !important;
+    color: white !important;
+}
+
+.table td{
+    background: #003366 !important;
+    color: white !important;
+}
+
+/* Форми */
+.form-control{
+    background: #00264d;
+    color: white;
+    border: 1px solid #3366cc;
+}
+
+.form-control:focus{
+    background: #003366;
+    color: white;
+
+    border-color: var(--accent);
+
+    box-shadow: 0 0 10px rgba(96,165,250,0.4);
+}
+
+/* Картки bootstrap */
+.card{
+    background: #003366;
+    color: white;
+}
+
+/* Кнопки bootstrap */
+.btn-success{
+    background: #0055aa;
+    border-color: #0055aa;
+}
+
+.btn-success:hover{
+    background: #0066cc;
+}
+
+.btn-warning{
+    background: #004080;
+    color: white;
+    border-color: #004080;
+}
+
+.btn-warning:hover{
+    background: #0055aa;
+    color: white;
+}
+
+.btn-danger{
+    background: #1d4ed8;
+    border-color: #1d4ed8;
+}
+
+.btn-danger:hover{
+    background: #2563eb;
+}

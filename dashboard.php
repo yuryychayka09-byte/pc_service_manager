@@ -11,7 +11,9 @@ if (!isset($_SESSION['user_id'])) {
 <html lang="uk">
 
 <head>
-    <meta charset="UTF-8">
+    <link rel="stylesheet"
+      href="/pc_service_manager/assets/css/theme.css">
+      <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
     <title>Dashboard</title>
@@ -41,16 +43,27 @@ if (!isset($_SESSION['user_id'])) {
     <div class="row mt-4">
 
         <div class="col-md-3">
-            <div class="card bg-primary text-white">
-                <div class="card-body">
-                    <h5>Клієнти</h5>
-                    <h2>0</h2>
-                </div>
+
+    <a href="clients/index.php"
+       class="text-decoration-none">
+
+        <div class="card demon-card">
+
+            <div class="card-body">
+
+                <h5>Клієнти</h5>
+                <h2>0</h2>
+
             </div>
+
         </div>
 
+    </a>
+
+</div>
+
         <div class="col-md-3">
-            <div class="card bg-success text-white">
+            <div class="card demon-card">
                 <div class="card-body">
                     <h5>Техніка</h5>
                     <h2>0</h2>
@@ -59,7 +72,7 @@ if (!isset($_SESSION['user_id'])) {
         </div>
 
         <div class="col-md-3">
-            <div class="card bg-warning text-dark">
+            <div class="card demon-card">
                 <div class="card-body">
                     <h5>Ремонти</h5>
                     <h2>0</h2>
@@ -68,52 +81,19 @@ if (!isset($_SESSION['user_id'])) {
         </div>
 
         <div class="col-md-3">
-            <div class="card bg-danger text-white">
+            <div class="card demon-card">
                 <div class="card-body">
                     <h5>Майстри</h5>
                     <h2>0</h2>
                 </div>
             </div>
         </div>
-        <div class="mt-4">
-    <a href="clients/index.php"
-       class="btn btn-primary">
-        Клієнти
-    </a>
-        </div>
-    </div>
-<div class="row mt-4">
-
-    <div class="col-md-3">
-        <a href="clients/index.php"
-           class="btn btn-primary w-100">
-            Клієнти
-        </a>
+        
     </div>
 
-    <div class="col-md-3">
-        <a href="#"
-           class="btn btn-success w-100">
-            Техніка
-        </a>
-    </div>
-
-    <div class="col-md-3">
-        <a href="#"
-           class="btn btn-warning w-100">
-            Заявки
-        </a>
-    </div>
-
-    <div class="col-md-3">
-        <a href="#"
-           class="btn btn-danger w-100">
-            Користувачі
-        </a>
-    </div>
 
 </div>
-</div>
+
 
 </body>
 </html>
