@@ -22,18 +22,7 @@ if (!isset($_SESSION['user_id'])) {
 
 <body>
 
-<nav class="navbar navbar-dark bg-dark">
-    <div class="container-fluid">
-        <span class="navbar-brand">
-            PC Service Manager
-        </span>
-
-        <a href="auth/logout.php"
-           class="btn btn-danger">
-            Вийти
-        </a>
-    </div>
-</nav>
+<?php require_once 'templates/navbar.php'; ?>
 
 <div class="container mt-4">
 
@@ -93,7 +82,37 @@ if (!isset($_SESSION['user_id'])) {
     </a>
         </div>
     </div>
+<div class="row mt-4">
 
+    <div class="col-md-3">
+        <a href="clients/index.php"
+           class="btn btn-primary w-100">
+            Клієнти
+        </a>
+    </div>
+
+    <div class="col-md-3">
+        <a href="#"
+           class="btn btn-success w-100">
+            Техніка
+        </a>
+    </div>
+
+    <div class="col-md-3">
+        <a href="#"
+           class="btn btn-warning w-100">
+            Заявки
+        </a>
+    </div>
+
+    <div class="col-md-3">
+        <a href="#"
+           class="btn btn-danger w-100">
+            Користувачі
+        </a>
+    </div>
+
+</div>
 </div>
 
 </body>
