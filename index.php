@@ -1,2 +1,4 @@
 <?php
-echo "PC Service Manager";
+
+header("Location: auth/login.php");
+exit;
