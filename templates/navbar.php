@@ -33,7 +33,7 @@ if (session_status() === PHP_SESSION_NONE) {
                 </li>
 
                 <li class="nav-item">
-                    <a class="nav-link" href="#">
+                    <a class="nav-link" href="/pc_service_manager/devices/index.php">
                          Техніка
                     </a>
                 </li>
