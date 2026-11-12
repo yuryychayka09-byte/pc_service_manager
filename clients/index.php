@@ -83,10 +83,17 @@ $clients = $db->query("
                         Змінити
                     </a>
 
-                    <a href="delete.php?id=<?= $client['id'] ?>"
-                       class="btn btn-danger btn-sm">
-                        Видалити
-                    </a>
+                    <?php if ($_SESSION['role'] === 'admin'): ?>
+
+<a href="delete.php?id=<?= $client['id'] ?>"
+   class="btn btn-danger btn-sm">
+
+    Видалити
+
+</a>
+
+<?php endif; ?>
+
 
                 </td>
 

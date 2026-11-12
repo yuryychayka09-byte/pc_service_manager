@@ -1,7 +1,11 @@
 <?php
 
 session_start();
+require_once '../config/auth.php';
 
+requireLogin();
+
+requireAdminOrOperator();
 require_once '../config/database.php';
 
 $id = $_GET['id'];

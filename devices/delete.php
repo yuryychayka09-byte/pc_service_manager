@@ -1,7 +1,11 @@
 <?php
 
 session_start();
+require_once '../config/auth.php';
 
+requireLogin();
+
+requireAdmin();
 if (!isset($_SESSION['user_id'])) {
     header("Location: ../auth/login.php");
     exit;

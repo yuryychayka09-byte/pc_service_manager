@@ -1,6 +1,13 @@
 <?php
 
 session_start();
+session_start();
+
+require_once '../config/auth.php';
+
+requireLogin();
+
+requireAdmin();
 
 require_once '../config/database.php';
 
