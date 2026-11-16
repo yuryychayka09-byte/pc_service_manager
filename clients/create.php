@@ -57,7 +57,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 <?php require_once '../templates/navbar.php'; ?>
 <div class="container mt-4">
 <a href="index.php"
-       class="btn btn-secondary mb-3">
+       class="btn btn-success">
         ← До списку клієнтів
     </a>
     <h1>Додати клієнта</h1>
@@ -97,7 +97,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                 class="form-control">
         </div>
 
-        <button class="btn btn-success">
+        <button class="btn demon-action btn-sm">
             Зберегти
         </button>
 

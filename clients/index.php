@@ -6,6 +6,7 @@ if (!isset($_SESSION['user_id'])) {
     header("Location: ../auth/login.php");
     exit;
 }
+
 require_once '../config/database.php';
 
 $clients = $db->query("
@@ -13,39 +14,50 @@ $clients = $db->query("
     FROM clients
     ORDER BY id DESC
 ")->fetchAll(PDO::FETCH_ASSOC);
+
 ?>
 
 <!DOCTYPE html>
 <html lang="uk">
-<
+
 <head>
-    <link rel="stylesheet"
-      href="/pc_service_manager/assets/css/theme.css">
-      <meta charset="UTF-8">
+
+    <meta charset="UTF-8">
 
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css"
-          rel="stylesheet">
+      rel="stylesheet">
 
-    <title>Clients</title>
+<link rel="stylesheet"
+      href="/pc_service_manager/assets/css/theme.css">
+
+    <title>Клієнти</title>
+
 </head>
 
 <body>
-<?php require_once '../templates/navbar.php'; 
-$clients = $db->query("
-    SELECT *
-    FROM clients
-    ORDER BY id DESC
-")->fetchAll(PDO::FETCH_ASSOC);?>
-<div class="container mt-4">
 
+<?php require_once '../templates/navbar.php'; ?>
+
+<div class="container mt-4">
+<input
+    type="text"
+    id="searchInput"
+    class="form-control mb-4 search-box"
+    placeholder="Пошук клієнта...">
     <h1>Клієнти</h1>
 
-    <a href="create.php"
-       class="btn btn-success mb-3">
-        Додати клієнта
-    </a>
+    <?php if ($_SESSION['role'] !== 'master'): ?>
 
-    <table class="table table-striped">
+        <a href="create.php"
+           class="btn demon-btn mb-3">
+
+            Додати клієнта
+
+        </a>
+
+    <?php endif; ?>
+
+    <table class="table">
 
         <thead>
 
@@ -78,22 +90,26 @@ $clients = $db->query("
 
                 <td>
 
-                    <a href="edit.php?id=<?= $client['id'] ?>"
-                       class="btn btn-warning btn-sm">
-                        Змінити
-                    </a>
+                    <?php if ($_SESSION['role'] !== 'master'): ?>
+
+                        <a href="edit.php?id=<?= $client['id'] ?>"
+                            class="demon-action">
+                             Змінити
+                        </a>
+
+                    <?php endif; ?>
 
                     <?php if ($_SESSION['role'] === 'admin'): ?>
 
-<a href="delete.php?id=<?= $client['id'] ?>"
-   class="btn btn-danger btn-sm">
+                        <a href="delete.php?id=<?= $client['id'] ?>"
+                           class="demon-action"
+                           onclick="return confirm('Видалити клієнта?');">
 
-    Видалити
+                            Видалити
 
-</a>
+                        </a>
 
-<?php endif; ?>
-
+                    <?php endif; ?>
 
                 </td>
 
@@ -106,9 +122,31 @@ $clients = $db->query("
     </table>
 
 </div>
+<script>
 
+document
+.getElementById('searchInput')
+.addEventListener('keyup', function () {
 
+    let value = this.value.toLowerCase();
+
+    let rows = document.querySelectorAll('tbody tr');
+
+    rows.forEach(function(row){
+
+        let text = row.textContent.toLowerCase();
+
+        row.style.display =
+            text.includes(value)
+            ? ''
+            : 'none';
+
+    });
+
+});
+
+</script>
+<?php require_once '../templates/footer.php'; ?>
 </body>
-
 
 </html>

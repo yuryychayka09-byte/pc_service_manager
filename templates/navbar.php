@@ -53,7 +53,12 @@ if (session_status() === PHP_SESSION_NONE) {
             </li>
 
             <?php endif; ?>
-
+<li class="nav-item">
+    <a class="nav-link"
+       href="/pc_service_manager/operations/index.php">
+         Роботи
+    </a>
+</li>
         </ul>
 
         <span class="text-white me-3">

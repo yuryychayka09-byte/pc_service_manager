@@ -57,7 +57,11 @@ $repairs = $db->query("
 <?php require_once '../templates/navbar.php'; ?>
 
 <div class="container mt-4">
-
+<input
+    type="text"
+    id="searchInput"
+    class="form-control mb-4 search-box"
+    placeholder=" Пошук клієнта...">
 <h1>Заявки на ремонт</h1>
 
 <a href="create.php"
@@ -98,7 +102,47 @@ $repairs = $db->query("
 
 <td><?= $repair['master_name'] ?></td>
 
-<td><?= $repair['status_name'] ?></td>
+<td>
+
+<?php if ($repair['status_name'] === 'Нова'): ?>
+
+<span class="badge bg-primary">
+    Нова
+</span>
+
+<?php elseif ($repair['status_name'] === 'Діагностика'): ?>
+
+<span class="badge bg-warning text-dark">
+    Діагностика
+</span>
+
+<?php elseif ($repair['status_name'] === 'В роботі'): ?>
+
+<span class="badge bg-info text-dark">
+    В роботі
+</span>
+
+<?php elseif ($repair['status_name'] === 'Готово'): ?>
+
+<span class="badge bg-success">
+    Готово
+</span>
+
+<?php elseif ($repair['status_name'] === 'Видано'): ?>
+
+<span class="badge bg-secondary">
+    Видано
+</span>
+
+<?php else: ?>
+
+<span class="badge bg-dark">
+    <?= $repair['status_name'] ?>
+</span>
+
+<?php endif; ?>
+
+</td>
 
 <td>
 
@@ -132,6 +176,30 @@ $repairs = $db->query("
 </table>
 
 </div>
+<script>
 
+document
+.getElementById('searchInput')
+.addEventListener('keyup', function () {
+
+    let value = this.value.toLowerCase();
+
+    let rows = document.querySelectorAll('tbody tr');
+
+    rows.forEach(function(row){
+
+        let text = row.textContent.toLowerCase();
+
+        row.style.display =
+            text.includes(value)
+            ? ''
+            : 'none';
+
+    });
+
+});
+
+</script>
+<?php require_once '../templates/footer.php'; ?>
 </body>
 </html>

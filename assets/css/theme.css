@@ -183,3 +183,183 @@ span{
 .btn-danger:hover{
     background: #2563eb;
 }
+.demon-action{
+
+    background: #003366;
+
+    color: white !important;
+
+    border: 1px solid #60a5fa;
+
+    border-radius: 6px;
+
+    transition: 0.3s;
+}
+
+.demon-action:hover{
+
+    background: #004080;
+
+    color: white !important;
+
+    border-color: #60a5fa;
+}
+.demon-action{
+
+    background: #003366;
+
+    color: white !important;
+
+    border: 1px solid #60a5fa;
+
+    border-radius: 6px;
+
+    transition: 0.3s;
+}
+
+.demon-action:hover{
+
+    background: #004080;
+
+    color: white !important;
+
+    border-color: #60a5fa;
+}
+.demon-action{
+
+    background-color: #003366 !important;
+
+    color: white !important;
+
+    border: 1px solid #60a5fa !important;
+
+    border-radius: 6px;
+
+    padding: 5px 10px;
+
+    display: inline-block;
+
+    text-decoration: none !important;
+
+    transition: all 0.3s ease;
+}
+
+.demon-action:hover{
+
+    background-color: #004080 !important;
+
+    color: white !important;
+
+    border-color: #60a5fa !important;
+}
+a.demon-action{
+
+    display:inline-block !important;
+
+    min-width:100px;
+
+    text-align:center;
+
+    background:#003366 !important;
+
+    color:white !important;
+
+    border:1px solid #60a5fa !important;
+
+    border-radius:6px;
+
+    padding:6px 12px;
+
+    margin:2px;
+
+    text-decoration:none !important;
+
+    transition:0.3s;
+}
+
+a.demon-action{
+
+    display:inline-block !important;
+
+    min-width:100px;
+
+    text-align:center;
+
+    background:#003366 !important;
+
+    color:white !important;
+
+    border:1px solid #60a5fa !important;
+
+    border-radius:6px;
+
+    padding:6px 12px;
+
+    margin:2px;
+
+    text-decoration:none !important;
+
+    transition:0.3s;
+}
+
+a.demon-action:hover{
+
+    background:#004080 !important;
+
+    color:white !important;
+
+    border-color:#60a5fa !important;
+}
+.search-box{
+    max-width: 450px;
+
+    background: #00264d;
+    color: white;
+
+    border: 1px solid #60a5fa;
+}
+.search-box{
+    max-width: 500px;
+
+    background: #00264d !important;
+
+    color: white !important;
+
+    border: 1px solid #60a5fa !important;
+    
+}
+
+.search-box::placeholder{
+    color: #b3ccff !important;
+    opacity: 1;
+}
+.footer{
+
+    margin-top: 50px;
+
+    padding: 20px;
+
+    background: #000814;
+
+    border-top: 2px solid #60a5fa;
+
+    color: #b3ccff;
+
+    text-align: center;
+}
+.hero-banner{
+
+    width: 100%;
+
+    height: 200px;
+
+    object-fit: cover;
+
+    border-radius: 15px;
+
+    border: 1px solid #60a5fa;
+
+    box-shadow: 0 0 25px rgba(96,165,250,0.2);
+
+    margin-bottom: 25px;
+}

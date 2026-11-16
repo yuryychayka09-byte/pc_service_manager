@@ -41,7 +41,11 @@ $devices = $db->query("
 <?php require_once '../templates/navbar.php'; ?>
 
 <div class="container mt-4">
-
+<input
+    type="text"
+    id="searchInput"
+    class="form-control mb-4 search-box"
+    placeholder="Пошук клієнта...">
     <h1>Техніка</h1>
 
     <a href="create.php"
@@ -111,6 +115,30 @@ $devices = $db->query("
     </table>
 
 </div>
+<script>
 
+document
+.getElementById('searchInput')
+.addEventListener('keyup', function () {
+
+    let value = this.value.toLowerCase();
+
+    let rows = document.querySelectorAll('tbody tr');
+
+    rows.forEach(function(row){
+
+        let text = row.textContent.toLowerCase();
+
+        row.style.display =
+            text.includes(value)
+            ? ''
+            : 'none';
+
+    });
+
+});
+
+</script>
+<?php require_once '../templates/footer.php'; ?>
 </body>
 </html>

@@ -30,6 +30,10 @@ $chartData = $db->query("
 
     GROUP BY statuses.id
 ")->fetchAll(PDO::FETCH_ASSOC);
+$totalRevenue = $db->query("
+    SELECT COALESCE(SUM(cost),0)
+    FROM repair_operations
+")->fetchColumn();
 $mastersCount = $db->query("
     SELECT COUNT(*)
     FROM users
@@ -78,6 +82,14 @@ $latestRepairs = $db->query("
 
 <div class="container mt-4">
 
+
+    <div class="hero-banner">
+    <img src="assets/images/banner.png"
+         class="img-fluid rounded"
+         alt="Service Center">
+</div>
+
+</div>
     <h1>Головна панель</h1>
 
     <p>
@@ -295,6 +307,27 @@ $latestRepairs = $db->query("
     </div>
 
 </div>
+<div class="col-md-3">
+
+    <div class="card demon-card">
+
+        <div class="card-body">
+
+            <h5> Дохід</h5>
+
+            <h2>
+
+                <?= $totalRevenue ?>
+
+            </h2>
+
+            <small>грн</small>
+
+        </div>
+
+    </div>
+
+</div>
 <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 
 <script>
@@ -345,6 +378,6 @@ new Chart(
 );
 
 </script>
-
+<?php require_once 'templates/footer.php'; ?>
 </body>
 </html>
