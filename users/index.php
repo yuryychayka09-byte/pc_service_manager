@@ -1,19 +1,22 @@
 <?php
 
 session_start();
-if ($_SESSION['role'] !== 'admin') {
 
-    header("Location: ../dashboard.php");
-
-    exit;
-}
+// Перевірка авторизації
 if (!isset($_SESSION['user_id'])) {
     header("Location: ../auth/login.php");
     exit;
 }
 
+// Перевірка прав адміністратора
+if ($_SESSION['role'] !== 'admin') {
+    header("Location: ../dashboard.php");
+    exit;
+}
+
 require_once '../config/database.php';
 
+// Отримання користувачів
 $users = $db->query("
     SELECT *
     FROM users
@@ -27,122 +30,118 @@ $users = $db->query("
 
 <head>
 
-<meta charset="UTF-8">
+    <meta charset="UTF-8">
 
-<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css"
-      rel="stylesheet">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<link rel="stylesheet"
-      href="/pc_service_manager/assets/css/theme.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css"
+          rel="stylesheet">
 
-<title>Користувачі</title>
+    <link rel="stylesheet"
+          href="/pc_service_manager/assets/css/theme.css">
+
+    <title>Користувачі</title>
 
 </head>
 
-<body>
+<body class="users-page">
 
-<?php require_once '../templates/navbar.php'; ?>
+    <?php require_once '../templates/navbar.php'; ?>
 
-<div class="container mt-4">
-<input
-    type="text"
-    id="searchInput"
-    class="form-control mb-4 search-box"
-    placeholder=" Пошук клієнта...">
-<h1>Користувачі</h1>
+    <div class="container mt-4">
 
-<a href="create.php"
-   class="btn demon-btn mb-3">
+        <!-- Пошук -->
+        <input
+            type="text"
+            id="searchInput"
+            class="form-control mb-4 search-box"
+            placeholder="Пошук користувача..."
+        >
 
-Додати користувача
+        <!-- Заголовок -->
+        <h1>Користувачі</h1>
 
-</a>
+        <!-- Додавання користувача -->
+        <a href="create.php" class="btn demon-btn mb-3">
+            Додати користувача
+        </a>
 
-<table class="table">
+        <!-- Таблиця користувачів -->
+        <table class="table users-table">
 
-<thead>
+            <thead>
+                <tr>
+                    <th>ID</th>
+                    <th>Логін</th>
+                    <th>ПІБ</th>
+                    <th>Роль</th>
+                    <th>Дії</th>
+                </tr>
+            </thead>
 
-<tr>
+            <tbody>
 
-<th>ID</th>
-<th>Логін</th>
-<th>ПІБ</th>
-<th>Роль</th>
-<th>Дії</th>
+                <?php foreach ($users as $user): ?>
 
-</tr>
+                    <tr>
 
-</thead>
+                        <td><?= htmlspecialchars($user['id']) ?></td>
 
-<tbody>
+                        <td><?= htmlspecialchars($user['username']) ?></td>
 
-<?php foreach ($users as $user): ?>
+                        <td><?= htmlspecialchars($user['fullname']) ?></td>
 
-<tr>
+                        <td><?= htmlspecialchars($user['role']) ?></td>
 
-<td><?= $user['id'] ?></td>
+                        <td>
 
-<td><?= $user['username'] ?></td>
+                            <a href="edit.php?id=<?= (int)$user['id'] ?>"
+                               class="btn btn-warning btn-sm">
 
-<td><?= $user['fullname'] ?></td>
+                                Змінити
 
-<td><?= $user['role'] ?></td>
+                            </a>
 
-<td>
+                            <a href="delete.php?id=<?= (int)$user['id'] ?>"
+                               class="btn btn-danger btn-sm">
 
-<a href="edit.php?id=<?= $user['id'] ?>"
-   class="btn btn-warning btn-sm">
+                                Видалити
 
-Змінити
+                            </a>
 
-</a>
+                        </td>
 
-<?php if ($_SESSION['role'] === 'admin'): ?>
+                    </tr>
 
-<a href="delete.php?id=<?= $client['id'] ?>"
-   class="btn btn-danger btn-sm">
+                <?php endforeach; ?>
 
-    Видалити
+            </tbody>
 
-</a>
+        </table>
 
-<?php endif; ?>
+    </div>
 
 
-</td>
+    <!-- Пошук користувачів -->
+    <script>
 
-</tr>
+        document.getElementById('searchInput').addEventListener('keyup', function () {
 
-<?php endforeach; ?>
+            let value = this.value.toLowerCase();
 
-</tbody>
+            let rows = document.querySelectorAll('.users-table tbody tr');
 
-</table>
+            rows.forEach(function (row) {
 
-</div>
-<script>
+                let text = row.textContent.toLowerCase();
 
-document
-.getElementById('searchInput')
-.addEventListener('keyup', function () {
+                row.style.display = text.includes(value) ? '' : 'none';
 
-    let value = this.value.toLowerCase();
+            });
 
-    let rows = document.querySelectorAll('tbody tr');
+        });
 
-    rows.forEach(function(row){
+    </script>
 
-        let text = row.textContent.toLowerCase();
-
-        row.style.display =
-            text.includes(value)
-            ? ''
-            : 'none';
-
-    });
-
-});
-
-</script>
 </body>
 </html>

@@ -1,4 +1,8 @@
-:root{
+/* ==============================
+   CSS VARIABLES
+============================== */
+
+:root {
     --bg-main: #001122;
     --bg-navbar: #000814;
 
@@ -9,9 +13,13 @@
     --text: #eaf2ff;
 }
 
-/* Загальний фон */
+
+/* ==============================
+   GLOBAL STYLES
+============================== */
+
 html,
-body{
+body {
     background: linear-gradient(
         135deg,
         #000814,
@@ -20,346 +28,575 @@ body{
     ) !important;
 
     min-height: 100vh;
-    color: var(--text);
     padding-top: 90px;
+    color: var(--text);
 }
 
-/* Щоб контент не липнув до navbar */
-.container{
-    padding-top: 30px;
-    padding-bottom: 30px;
+.container {
+    padding: 30px 0;
 }
 
-/* Navbar */
-.navbar{
+h1, h2, h3, h4, h5, h6 {
+    color: white !important;
+}
+
+p, label, strong, span {
+    color: var(--text);
+}
+
+
+/* ==============================
+   NAVBAR
+============================== */
+
+.navbar {
     position: fixed !important;
     top: 0 !important;
     left: 0 !important;
     right: 0 !important;
 
     width: 100% !important;
-
     z-index: 99999 !important;
 
     background: #000000 !important;
-
-    border-bottom: 3px solid #60a5fa !important;
-    
+    border-bottom: 3px solid var(--accent) !important;
 }
 
-
-.navbar-brand{
+.navbar-brand {
     color: white !important;
     font-weight: 700;
 }
 
-.nav-link{
+.nav-link {
     color: #cbd5e1 !important;
 }
 
-.nav-link:hover{
+.nav-link:hover {
     color: var(--accent) !important;
 }
 
-/* Заголовки */
-h1,h2,h3,h4,h5,h6{
+.navbar-user {
     color: white !important;
-}
-
-/* Текст */
-p,
-label,
-strong,
-span{
-    color: var(--text);
-}
-
-/* Карточки Dashboard */
-.demon-card{
-    background: #0a3d7a !important;
-
-    border-left: 5px solid #60a5fa;
-
-    box-shadow:
-        0 0 20px rgba(96,165,250,0.15);
-
-    color: white;
-     cursor: pointer;
-
-    }
-
-.demon-card:hover{
-    background: var(--card-hover) !important;
-
-     transform: translateY(-5px);
-
-    box-shadow: 0 0 20px rgba(96,165,250,0.30);
-}
-
-/* Кнопки меню */
-.demon-btn{
-
-    background: #0a3d7a;
-
-    color: white !important;
-
-    border: 1px solid #60a5fa;
-
     font-weight: 600;
 }
 
-.demon-btn:hover{
 
-    background: #1456a0;
+/* ==============================
+   DASHBOARD
+============================== */
+
+.dashboard-header {
+    margin-bottom: 25px;
+}
+
+.dashboard-title {
+    font-size: 3rem;
+    font-weight: 900;
+    letter-spacing: 3px;
+    color: var(--accent) !important;
+
+    text-shadow: 0 0 20px rgba(96, 165, 250, 0.4);
+}
+
+.dashboard-subtitle {
+    font-size: 1.1rem;
+    color: #94a3b8;
+}
+
+.dashboard-cards {
+    margin-top: 40px;
+}
+
+
+/* ==============================
+   CARDS
+============================== */
+
+.card {
+    background: var(--card-bg);
+    color: white;
+}
+
+.demon-card {
+    background: #0a3d7a !important;
+    border-left: 5px solid var(--accent);
+
+    box-shadow: 0 0 20px rgba(96, 165, 250, 0.15);
 
     color: white;
+    cursor: pointer;
+}
 
+.demon-card:hover {
+    background: var(--card-hover) !important;
+    transform: translateY(-5px);
+
+    box-shadow: 0 0 20px rgba(96, 165, 250, 0.30);
+}
+
+
+/* ==============================
+   BUTTONS
+============================== */
+
+.demon-btn {
+    background: #0a3d7a;
+    color: white !important;
+
+    border: 1px solid var(--accent);
+    font-weight: 600;
+}
+
+.demon-btn:hover {
+    background: #1456a0;
+    color: white;
     transform: translateY(-2px);
 }
 
-/* Таблиці */
-.table{
-    color: white !important;
-}
+.demon-action {
+    display: inline-block;
+    min-width: 100px;
+    padding: 6px 12px;
+    margin: 2px;
 
-.table th{
-    background: #00264d !important;
-    color: white !important;
-}
-
-.table td{
     background: #003366 !important;
     color: white !important;
-}
 
-/* Форми */
-.form-control{
-    background: #00264d;
-    color: white;
-    border: 1px solid #3366cc;
-}
-
-.form-control:focus{
-    background: #003366;
-    color: white;
-
-    border-color: var(--accent);
-
-    box-shadow: 0 0 10px rgba(96,165,250,0.4);
-}
-
-/* Картки bootstrap */
-.card{
-    background: #003366;
-    color: white;
-}
-
-/* Кнопки bootstrap */
-.btn-success{
-    background: #0055aa;
-    border-color: #0055aa;
-}
-
-.btn-success:hover{
-    background: #0066cc;
-}
-
-.btn-warning{
-    background: #004080;
-    color: white;
-    border-color: #004080;
-}
-
-.btn-warning:hover{
-    background: #0055aa;
-    color: white;
-}
-
-.btn-danger{
-    background: #1d4ed8;
-    border-color: #1d4ed8;
-}
-
-.btn-danger:hover{
-    background: #2563eb;
-}
-.demon-action{
-
-    background: #003366;
-
-    color: white !important;
-
-    border: 1px solid #60a5fa;
-
+    border: 1px solid var(--accent) !important;
     border-radius: 6px;
 
-    transition: 0.3s;
-}
-
-.demon-action:hover{
-
-    background: #004080;
-
-    color: white !important;
-
-    border-color: #60a5fa;
-}
-.demon-action{
-
-    background: #003366;
-
-    color: white !important;
-
-    border: 1px solid #60a5fa;
-
-    border-radius: 6px;
-
-    transition: 0.3s;
-}
-
-.demon-action:hover{
-
-    background: #004080;
-
-    color: white !important;
-
-    border-color: #60a5fa;
-}
-.demon-action{
-
-    background-color: #003366 !important;
-
-    color: white !important;
-
-    border: 1px solid #60a5fa !important;
-
-    border-radius: 6px;
-
-    padding: 5px 10px;
-
-    display: inline-block;
-
+    text-align: center;
     text-decoration: none !important;
 
     transition: all 0.3s ease;
 }
 
-.demon-action:hover{
-
-    background-color: #004080 !important;
-
+.demon-action:hover {
+    background: #004080 !important;
     color: white !important;
-
-    border-color: #60a5fa !important;
-}
-a.demon-action{
-
-    display:inline-block !important;
-
-    min-width:100px;
-
-    text-align:center;
-
-    background:#003366 !important;
-
-    color:white !important;
-
-    border:1px solid #60a5fa !important;
-
-    border-radius:6px;
-
-    padding:6px 12px;
-
-    margin:2px;
-
-    text-decoration:none !important;
-
-    transition:0.3s;
+    border-color: var(--accent) !important;
 }
 
-a.demon-action{
 
-    display:inline-block !important;
+/* Bootstrap Buttons */
 
-    min-width:100px;
-
-    text-align:center;
-
-    background:#003366 !important;
-
-    color:white !important;
-
-    border:1px solid #60a5fa !important;
-
-    border-radius:6px;
-
-    padding:6px 12px;
-
-    margin:2px;
-
-    text-decoration:none !important;
-
-    transition:0.3s;
+.btn-success {
+    background: #0055aa;
+    border-color: #0055aa;
 }
 
-a.demon-action:hover{
-
-    background:#004080 !important;
-
-    color:white !important;
-
-    border-color:#60a5fa !important;
+.btn-success:hover {
+    background: #0066cc;
 }
-.search-box{
-    max-width: 450px;
+
+.btn-warning {
+    background: #004080;
+    color: white;
+    border-color: #004080;
+}
+
+.btn-warning:hover {
+    background: #0055aa;
+    color: white;
+}
+
+.btn-danger {
+    background: #1d4ed8;
+    border-color: #1d4ed8;
+}
+
+.btn-danger:hover {
+    background: #2563eb;
+}
+
+
+/* ==============================
+   TABLES
+============================== */
+
+.table {
+    color: white !important;
+}
+
+.table th {
+    background: #00264d !important;
+    color: white !important;
+}
+
+.table td {
+    background: var(--card-bg) !important;
+    color: white !important;
+}
+
+
+/* ==============================
+   FORMS
+============================== */
+
+.form-control,
+.search-box {
+    background: #00264d;
+    color: white;
+
+    border: 1px solid var(--accent);
+}
+
+.form-control:focus {
+    background: var(--card-bg);
+    color: white;
+
+    border-color: var(--accent);
+    box-shadow: 0 0 10px rgba(96, 165, 250, 0.4);
+}
+
+.search-box {
+    max-width: 500px;
+}
+
+.search-box::placeholder {
+    color: #b3ccff !important;
+    opacity: 1;
+}
+
+
+/* ==============================
+   IMAGES
+============================== */
+
+.hero-banner {
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+
+    border-radius: 15px;
+    border: 1px solid var(--accent);
+
+    box-shadow: 0 0 25px rgba(96, 165, 250, 0.2);
+
+    margin-bottom: 25px;
+}
+
+.hero-image {
+    width: 100%;
+    height: 360px;
+    object-fit: cover;
+
+    border-radius: 18px;
+    border: 2px solid var(--accent);
+
+    margin: 20px 0;
+
+    box-shadow: 0 0 30px rgba(96, 165, 250, 0.25);
+}
+
+
+/* ==============================
+   LOGIN PAGE
+============================== */
+
+.login-page {
+    min-height: 100vh;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    background: linear-gradient(
+        135deg,
+        #000814,
+        #001122,
+        #001f3f
+    );
+}
+
+.login-card {
+    width: 450px;
+    padding: 35px;
+
+    background: #001d3d;
+
+    border: 1px solid var(--accent);
+    border-radius: 15px;
+
+    box-shadow: 0 0 30px rgba(96, 165, 250, 0.25);
+}
+
+.login-card h1 {
+    color: white;
+    text-align: center;
+    margin-bottom: 25px;
+}
+
+.login-card p {
+    color: #b3ccff;
+}
+
+.login-card input {
+    width: 100%;
+    box-sizing: border-box;
 
     background: #00264d;
     color: white;
 
-    border: 1px solid #60a5fa;
-}
-.search-box{
-    max-width: 500px;
+    border: 1px solid var(--accent);
+    border-radius: 7px;
 
-    background: #00264d !important;
-
-    color: white !important;
-
-    border: 1px solid #60a5fa !important;
-    
+    padding: 10px;
+    margin-bottom: 15px;
 }
 
-.search-box::placeholder{
-    color: #b3ccff !important;
-    opacity: 1;
-}
-.footer{
+.login-card button {
+    width: 100%;
+    padding: 10px;
 
+    background: #0077cc;
+    color: white;
+
+    border: none;
+    border-radius: 7px;
+
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.login-card button:hover {
+    background: #0096ff;
+}
+
+
+/* ==============================
+   FOOTER
+============================== */
+
+.footer {
     margin-top: 50px;
-
     padding: 20px;
 
-    background: #000814;
+    background: var(--bg-navbar);
 
-    border-top: 2px solid #60a5fa;
+    border-top: 2px solid var(--accent);
 
     color: #b3ccff;
-
     text-align: center;
 }
-.hero-banner{
 
-    width: 100%;
 
-    height: 200px;
+/* ==============================
+   LIGHT THEME
+============================== */
 
-    object-fit: cover;
+body.light-theme {
+    background: linear-gradient(
+        135deg,
+        #dfe7f2,
+        #e8eff7,
+        #d9e5f2
+    ) !important;
 
-    border-radius: 15px;
+    color: #1f2937 !important;
+}
 
-    border: 1px solid #60a5fa;
 
-    box-shadow: 0 0 25px rgba(96,165,250,0.2);
+/* Text and headings */
 
-    margin-bottom: 25px;
+body.light-theme h1,
+body.light-theme h2,
+body.light-theme h3,
+body.light-theme h4,
+body.light-theme h5,
+body.light-theme h6 {
+    color: #1e293b !important;
+}
+
+body.light-theme p,
+body.light-theme label,
+body.light-theme strong,
+body.light-theme span {
+    color: #1f2937 !important;
+}
+
+
+/* Cards */
+
+body.light-theme .card,
+body.light-theme .demon-card {
+    background: white !important;
+
+    border: 1px solid #dbeafe;
+
+    color: #1f2937 !important;
+
+    box-shadow: 0 5px 15px rgba(37, 99, 235, 0.12);
+}
+
+body.light-theme .demon-card {
+    border-left: 5px solid var(--accent);
+}
+
+body.light-theme .demon-card:hover {
+    background: #f1f7ff !important;
+}
+
+body.light-theme .demon-card h1,
+body.light-theme .demon-card h2,
+body.light-theme .demon-card h3,
+body.light-theme .demon-card h4,
+body.light-theme .demon-card h5,
+body.light-theme .demon-card h6,
+body.light-theme .demon-card p {
+    color: #1f2937 !important;
+}
+
+
+/* Dashboard */
+
+body.light-theme .dashboard-title {
+    color: #2563eb !important;
+
+    text-shadow: 0 0 10px rgba(37, 99, 235, 0.18);
+}
+
+body.light-theme .dashboard-subtitle {
+    color: #475569 !important;
+}
+
+
+/* Tables */
+
+body.light-theme .table {
+    color: #1f2937 !important;
+
+    --bs-table-color: #1f2937;
+    --bs-table-bg: transparent;
+}
+
+body.light-theme .table th {
+    background: #00264d !important;
+    color: white !important;
+}
+
+body.light-theme .table td {
+    background: #ffffff !important;
+    color: #1f2937 !important;
+    border-color: #dbe3ed !important;
+}
+
+body.light-theme .table > :not(caption) > * > * {
+    color: #1f2937 !important;
+    border-bottom-color: #dbe3ed;
+}
+
+body.light-theme .table thead th {
+    background: #00264d !important;
+    color: white !important;
+}
+
+
+/* Forms */
+
+body.light-theme .form-control,
+body.light-theme .search-box {
+    background: white !important;
+    color: #1f2937 !important;
+
+    border: 1px solid #93b4dc !important;
+}
+
+body.light-theme .form-control::placeholder,
+body.light-theme .search-box::placeholder {
+    color: #64748b !important;
+}
+
+body.light-theme .form-control:focus {
+    background: white !important;
+    color: #1f2937 !important;
+
+    border-color: #2563eb !important;
+    box-shadow: 0 0 10px rgba(37, 99, 235, 0.2);
+}
+
+
+/* Buttons */
+
+body.light-theme .demon-btn,
+body.light-theme .demon-action {
+    background: #003366 !important;
+    color: white !important;
+}
+
+
+/* Navbar remains dark */
+
+body.light-theme .navbar {
+    background: #000000 !important;
+}
+
+body.light-theme .navbar-brand,
+body.light-theme .navbar-user {
+    color: white !important;
+}
+
+body.light-theme .nav-link {
+    color: #cbd5e1 !important;
+}
+
+body.light-theme .nav-link:hover {
+    color: var(--accent) !important;
+}
+
+
+/* Footer */
+
+body.light-theme .footer {
+    background: #dbe7f5 !important;
+
+    color: #1f2937 !important;
+
+    border-top: 2px solid #2563eb !important;
+}
+
+body.light-theme .footer p,
+body.light-theme .footer span,
+body.light-theme .footer strong {
+    color: #1f2937 !important;
+}
+/* ==============================
+   USERS PAGE
+============================== */
+
+/* Світла тема */
+
+body.light-theme.users-page h1 {
+    color: #1e293b !important;
+}
+
+body.light-theme .users-table {
+    color: #1f2937 !important;
+    --bs-table-color: #1f2937;
+    --bs-table-bg: transparent;
+}
+
+body.light-theme .users-table th {
+    background: #00264d !important;
+    color: white !important;
+}
+
+body.light-theme .users-table td {
+    background: white !important;
+    color: #1f2937 !important;
+    border-color: #dbe3ed !important;
+}
+
+body.light-theme .users-table > tbody > tr > td {
+    color: #1f2937 !important;
+}
+
+body.light-theme .users-page .search-box {
+    background: white !important;
+    color: #1f2937 !important;
+    border-color: #93b4dc !important;
+}
+
+body.light-theme .users-page .search-box::placeholder {
+    color: #64748b !important;
 }

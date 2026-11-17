@@ -82,25 +82,40 @@ $latestRepairs = $db->query("
 
 <div class="container mt-4">
 
+    <div class="dashboard-header">
 
-    <div class="hero-banner">
-    <img src="assets/images/banner.png"
-         class="img-fluid rounded"
-         alt="Service Center">
-</div>
+    <h1 class="dashboard-title">
 
-</div>
-    <h1>Головна панель</h1>
+          Computer Control Center
 
-    <p>
+    </h1>
+
+    <p class="dashboard-subtitle">
+
         Користувач:
         <strong><?= $_SESSION['fullname']; ?></strong>
+
+        -
+
+        Роль:
+        <strong><?= strtoupper($_SESSION['role']); ?></strong><br>
+        Панель управління сервісним центром
+
     </p>
 
-    <p>
-        Роль:
-        <strong><?= $_SESSION['role']; ?></strong>
-    </p>
+</div>
+    <div class="hero-banner">
+
+    <img
+        src="assets/images/banner.png"
+        class="hero-image"
+        alt="Service Center">
+
+</div>
+
+<br>
+
+<div class="row dashboard-cards">
 
     <div class="row mt-4">
 

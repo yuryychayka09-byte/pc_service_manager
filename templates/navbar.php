@@ -58,15 +58,23 @@ if (session_status() === PHP_SESSION_NONE) {
        href="/pc_service_manager/operations/index.php">
          Роботи
     </a>
+    
 </li>
         </ul>
 
-        <span class="text-white me-3">
+        <span class="navbar-user me-3">
 
-            <?= $_SESSION['fullname'] ?>
+         <?= $_SESSION['fullname'] ?>
 
         </span>
 
+<button
+    id="themeToggle"
+    class="btn demon-btn me-2">
+
+     Тема
+
+</button>
         <a href="/pc_service_manager/auth/logout.php"
            class="btn btn-danger">
             Вийти
