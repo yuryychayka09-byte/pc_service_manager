@@ -2,10 +2,7 @@
 
 session_start();
 require_once '../config/auth.php';
-
 requireLogin();
-
-requireAdminOrOperator();
 if (!isset($_SESSION['user_id'])) {
     header("Location: ../auth/login.php");
     exit;
@@ -48,27 +45,46 @@ $repair = $stmt->fetch(PDO::FETCH_ASSOC);
 
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
-    $stmt = $db->prepare("
-        UPDATE repair_requests
-        SET
-            client_id = ?,
-            device_id = ?,
-            master_id = ?,
-            problem_description = ?,
-            status_id = ?
-        WHERE id = ?
-    ");
+    if ($_SESSION['role'] === 'master') {
 
-    $stmt->execute([
+        $stmt = $db->prepare("
+            UPDATE repair_requests
+            SET
+                status_id = ?
+            WHERE id = ?
+        ");
 
-        $_POST['client_id'],
-        $_POST['device_id'],
-        $_POST['master_id'],
-        $_POST['problem_description'],
-        $_POST['status_id'],
-        $id
+        $stmt->execute([
 
-    ]);
+            $_POST['status_id'],
+            $id
+
+        ]);
+
+    } else {
+
+        $stmt = $db->prepare("
+            UPDATE repair_requests
+            SET
+                client_id = ?,
+                device_id = ?,
+                master_id = ?,
+                problem_description = ?,
+                status_id = ?
+            WHERE id = ?
+        ");
+
+        $stmt->execute([
+
+            $_POST['client_id'],
+            $_POST['device_id'],
+            $_POST['master_id'],
+            $_POST['problem_description'],
+            $_POST['status_id'],
+            $id
+
+        ]);
+    }
 
     header("Location: index.php");
     exit;
